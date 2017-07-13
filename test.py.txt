@@ -1,0 +1,33 @@
+def decor_fn(outer_fn):
+    def wrapper_fn(*args, **kwargs):
+        print "The Wrpapper Decorator Executes {}".format(outer_fn.__name__)
+        return outer_fn(*args, **kwargs)
+    return wrapper_fn
+
+class decor_cls(object):
+    def __init__(self, outer_fn):
+	self.outer_fn = outer_fn
+    def __call__(self, *args, **kwargs):
+        print "The Call function is executed here {}".format(self.outer_fn.__name__)
+        return self.outer_fn(*args, **kwargs)
+
+#Using decorator function
+@decor_fn
+def display():
+    print "Here Displaying"
+
+@decor_fn
+def display_det(name=None,age=None):
+    print "The Name and Age : {} & {}".format(name,age)
+
+#Using Decorator Class
+@decor_cls
+def display():
+    print "Here Displaying"
+
+@decor_cls
+def display_det(name=None,age=None):
+    print "The Name and Age : {} & {}".format(name,age)    
+
+display()
+display_det()
