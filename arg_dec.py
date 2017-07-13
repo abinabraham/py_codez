@@ -1,3 +1,5 @@
+#The Decorator To Check the arguments are Integers , and allows only integers
+
 def arg_dec(operation):
     def wrapper(*args, **kwargs):
         for arg in args:
