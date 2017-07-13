@@ -1,3 +1,5 @@
+#The Decorator To Check which function is executed
+
 def decor_fn(outer_fn):
     def wrapper_fn(*args, **kwargs):
         print "The Wrpapper Decorator Executes {}".format(outer_fn.__name__)
